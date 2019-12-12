@@ -55,7 +55,7 @@ class ButtonApp(App):
     mir = RestMiR()
     def build(self):
         btn = Button(text="Release MIR",
-                     font_size="20sp",
+                     font_size="50sp",
                      background_color=(1, 1, 1, 1),
                      color=(1, 1, 1, 1))
 
@@ -65,12 +65,11 @@ class ButtonApp(App):
 
     def callback(self, event):
         #Release the mir
+        #value = self.mir.read_register(150)
+        #self.mir.write_register(150, not value)
         self.mir.write_register(150, 1)
-        #print("Register 1 Value: " + str(self.mir.read_register(1)))
+        print("Register 150 Value: " + str(self.mir.read_register(150)))
+
 
 root = ButtonApp()
-
-# run function runs the whole program
-# i.e run() method which calls the
-# target function passed to the constructor.
 root.run()
